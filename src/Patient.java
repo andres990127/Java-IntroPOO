@@ -75,7 +75,6 @@ public class Patient {
         }else if(phoneNumber.length() == 8){
             this.phoneNumber = phoneNumber;
         }
-
     }
 
     public String getBirthday() {

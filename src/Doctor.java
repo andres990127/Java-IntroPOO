@@ -1,9 +1,12 @@
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Doctor {
-    //Atributes
+    // Atributos
     static int id;
-    String name;
-    String email;
-    String speciality;
+    private String name;
+    private String email;
+    private String speciality;
 
     //Constructor
     Doctor(){
@@ -11,6 +14,7 @@ public class Doctor {
         id++;
     }
 
+    // Sobrecarga del constructor
     public Doctor(String name, String speciality) {
         this.name = name;
         this.speciality = speciality;
@@ -23,5 +27,54 @@ public class Doctor {
 
     public void showId(){
         System.out.println("Id Doctor: " + id);
+    }
+
+    // Objeto que contendrá las citas del doctor
+    ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
+
+    // Método que añadirá una nueva cita al doctor
+    public void addAvailableAppointment(Date date, String time){
+        availableAppointments.add(new AvailableAppointment(date, time));
+    }
+
+    // Getter para obtener las citas de un doctor
+    public ArrayList<AvailableAppointment> getAvailableAppointments() {
+        return availableAppointments;
+    }
+
+    // Clase anidada para citas [Debido a que 1 doctor puede tener varias citas]
+    public static class AvailableAppointment{
+        private int id;
+        private Date date;
+        private String time;
+
+        public AvailableAppointment(Date date, String time) {
+            this.date = date;
+            this.time = time;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public Date getDate() {
+            return date;
+        }
+
+        public void setDate(Date date) {
+            this.date = date;
+        }
+
+        public String getTime() {
+            return time;
+        }
+
+        public void setTime(String time) {
+            this.time = time;
+        }
     }
 }

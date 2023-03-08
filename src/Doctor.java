@@ -1,32 +1,14 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Doctor {
+public class Doctor extends User {
     // Atributos
-    static int id;
-    private String name;
-    private String email;
     private String speciality;
 
-    //Constructor
-    Doctor(){
-        System.out.println("Se ha creado un nuevo Doctor");
-        id++;
-    }
-
-    // Sobrecarga del constructor
-    public Doctor(String name, String speciality) {
-        this.name = name;
+    // Constructor
+    public Doctor(String name, String email, String speciality) {
+        super(name, email);
         this.speciality = speciality;
-    }
-
-    //Métodos
-    public void showName(){
-        System.out.println(name);
-    }
-
-    public void showId(){
-        System.out.println("Id Doctor: " + id);
     }
 
     // Objeto que contendrá las citas del doctor
@@ -35,6 +17,15 @@ public class Doctor {
     // Método que añadirá una nueva cita al doctor
     public void addAvailableAppointment(Date date, String time){
         availableAppointments.add(new AvailableAppointment(date, time));
+    }
+
+    // Getters y setters de la clase
+    public String getSpeciality() {
+        return speciality;
+    }
+
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
 
     // Getter para obtener las citas de un doctor

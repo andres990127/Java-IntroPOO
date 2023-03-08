@@ -42,4 +42,9 @@ public class Patient extends User{
     public void setBlood(String blood) {
         this.blood = blood;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Age: " + birthday + ", Weight: " + getWeight() + ", Height: " + getWeight() + ", Blood: " + getBlood();
+    }
 }

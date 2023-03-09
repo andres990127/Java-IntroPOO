@@ -8,9 +8,8 @@ public class Doctor extends User {
     private String speciality;
 
     // Constructor
-    public Doctor(String name, String email, String speciality) {
+    public Doctor(String name, String email) {
         super(name, email);
-        this.speciality = speciality;
     }
 
     // Objeto que contendrá las citas del doctor
@@ -33,6 +32,13 @@ public class Doctor extends User {
     // Getter para obtener las citas de un doctor
     public ArrayList<AvailableAppointment> getAvailableAppointments() {
         return availableAppointments;
+    }
+
+    // Método obligatorio de implementar debido a herencia de clase abstracta
+    @Override
+    public void showDateUser() {
+        System.out.println("Empleado del hospital: Cruz Roja");
+        System.out.println("Departamento: Oncología");
     }
 
     // Clase anidada para citas [Debido a que 1 doctor puede tener varias citas]
